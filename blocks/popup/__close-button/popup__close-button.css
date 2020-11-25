@@ -1,5 +1,4 @@
 .popup__close-button {
-    transform: rotate(-45deg);
     background-repeat: no-repeat;
     cursor: pointer;
     transition: 1s;

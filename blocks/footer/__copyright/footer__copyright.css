@@ -2,6 +2,7 @@
     font-style: normal;
     font-weight: normal;
     color: #545454;
+    margin: 0;
 }
 
 @media (min-width: 320px) {

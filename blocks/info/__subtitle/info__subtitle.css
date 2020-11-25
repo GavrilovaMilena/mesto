@@ -5,6 +5,7 @@
     grid-area: subtitle;
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap; 
 }
 
 @media (min-width: 320px) {
@@ -14,6 +15,7 @@
         text-align: center;
         margin-top: 14px;
         justify-self: center;
+        max-width: 282px;
     }
 }
 
@@ -24,5 +26,6 @@
         text-align: left;
         margin-top: 16px;
         justify-self: left;
+        max-width: 336px;
     }
 }
