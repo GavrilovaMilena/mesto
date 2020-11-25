@@ -1,0 +1,32 @@
+.popup__close-button {
+    transform: rotate(-45deg);
+    border: none;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 1s;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    position: absolute;
+}
+
+.popup__close-button:hover {
+    transition: 1s;
+    opacity: .6;
+}
+
+@media (min-width: 320px) {
+    .popup__close-button {
+        top: -44.6px;
+        right: 8.38px;
+        width: 26px;
+        height: 26px;
+        padding: 0;
+    }
+}
+
+@media (min-width: 1280px) {
+    .popup__close-button {
+        top: -15%;
+        left: 96%;
+    }
+}

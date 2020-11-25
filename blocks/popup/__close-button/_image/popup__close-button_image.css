@@ -1,0 +1,11 @@
+@media (min-width: 320px) {
+    .popup__close-button_image {
+        width: 26px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .popup__close-button_image {
+        width: 40px;
+    }
+}

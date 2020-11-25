@@ -1,0 +1,16 @@
+.info {
+    display: grid;
+}
+
+@media (min-width: 320px) {
+    .info {
+        grid-template-areas: "title button" "subtitle .";
+        margin: auto;
+    }
+}
+
+@media (min-width: 1280px) {
+    .info {
+        grid-template-areas: "title button" "subtitle .";
+    }
+}
