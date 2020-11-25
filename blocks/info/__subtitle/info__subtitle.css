@@ -3,6 +3,8 @@
     font-style: normal;
     font-weight: normal;
     grid-area: subtitle;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 @media (min-width: 320px) {
