@@ -1,6 +1,7 @@
 @media (min-width: 320px) {
     .popup__image {
         width: 26px;
+        transform: rotate(45deg);
     }
 }
 
