@@ -14,8 +14,8 @@
 
 @media (min-width: 320px) {
     .popup__close-button {
-        top: -44.6px;
-        right: 8.38px;
+        top: -39px;
+        right: 0;
         width: 26px;
         height: 26px;
         padding: 0;
@@ -24,7 +24,9 @@
 
 @media (min-width: 1280px) {
     .popup__close-button {
-        top: -15%;
-        left: 96%;
+        top: -40px;
+        width: 40px;
+        height: 40px;
+        right: -40px;
     }
 }
