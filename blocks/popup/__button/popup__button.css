@@ -5,6 +5,7 @@
     color: white;
     cursor: pointer;
     transition: 1s;
+    border: none;
 }
 
 .popup__button:hover {
