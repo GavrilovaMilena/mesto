@@ -3,9 +3,18 @@
     background-color: white;
     cursor: pointer;
     transition: 1s;
+    background-image: url(../../../images/Vector\(3\).svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    padding: 12px;
 }
 
 .card__like:hover {
     transition: 1s;
     opacity: .5;
 }
+
+.card__like:active, .card__like:focus {
+    background-image: url(../../../images/Union\(1\).svg);
+   }

@@ -24,6 +24,9 @@
 @import url(../blocks/card/__text/card__text.css);
 @import url(../blocks/card/__group/card__group.css);
 @import url(../blocks/card/__like/card__like.css);
+@import url(../blocks/card/__delete/card__delete.css);
+@import url(../blocks/card/__trashcan/card__trashcan.css);
+
 
 
 @import url(../blocks/footer/footer.css);
@@ -38,3 +41,6 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/_b/popup_b.css);
+@import url(../blocks/popup/_visible/-b/popup_visible-b.css);
+@import url(../blocks/popup/__close-button/_b/popup__close-button_b.css);
