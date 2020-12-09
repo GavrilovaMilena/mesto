@@ -89,7 +89,7 @@ const initialCards = [
   },
   {
     name: 'Байкал',
-    link: 'https://images.unsplash.com/photo-1547994770-e5d8509b114d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+    link: 'https://images.unsplash.com/photo-1490791135648-882cc5638215?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2075&q=80'
   }
 ];
 
