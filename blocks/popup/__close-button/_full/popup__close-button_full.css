@@ -1,19 +1,17 @@
 @media (min-width: 320px) {
     .popup__close-button_full {
-        height: 30px;
-        left: 90.25%;
-        right: -2.63%;
-        top: 228px;
-        padding: 0;
+        height: 40px;
+        left: 81.46%;
+        right: 13.42%;
+        top: 113px;
     }
 }
 
 @media (min-width: 1280px) {
     .popup__close-button_full {
-        height: 40px;
-        left: 83.46%;
-        right: 13.42%;
-        top: 41px;
-        padding: 0;
+        height: 30px;
+        left: 87.25%;
+        right: -2.63%;
+        top: 316px;
     }
 }
