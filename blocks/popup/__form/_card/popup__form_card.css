@@ -1,5 +1,4 @@
-.popup_visible {
+.popup__form_card {
     display: flex;
     flex-direction: column;
 }
-

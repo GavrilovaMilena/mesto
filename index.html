@@ -29,66 +29,9 @@
                 </button>
             </section>
             <section class="cards">
-                <div class="card">
-                    <img class="card__image" src="images/photo-1530122037265-a5f1f91d3b99.jpg"
-                        alt="Домики в Швейцарии на фоне гор">
-                    <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                            alt="Мусорный бак"></button>
-                    <div class="card__group">
-                        <h3 class="card__text">Альпы</h3>
-                        <button class="card__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/photo-1527004013197-933c4bb611b3.jpg"
-                        alt="Домики в Норвегии на скалах, на берегу моря">
-                    <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                            alt="Мусорный бак"></button>
-                    <div class="card__group">
-                        <h3 class="card__text">Берген</h3>
-                        <button class="card__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/photo-1570536552376-23d0856e8794.jpg" alt="Долина Шотландии">
-                    <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                            alt="Мусорный бак"></button>
-                    <div class="card__group">
-                        <h3 class="card__text">Гленко</h3>
-                        <button class="card__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/photo-1499002238440-d264edd596ec.jpg"
-                        alt="Лавандовые поля Франции">
-                    <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                            alt="Мусорный бак"></button>
-                    <div class="card__group">
-                        <h3 class="card__text">Прованс</h3>
-                        <button class="card__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/photo-1543074134-af73fd296dc0.jpg" alt="Горы гринландии">
-                    <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                            alt="Мусорный бак"></button>
-                    <div class="card__group">
-                        <h3 class="card__text">Гунбьёрн</h3>
-                        <button class="card__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card__image" src="images/photo-1445978259239-a6c453c3513a.jpg" alt="Сидней">
-                    <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                            alt="Мусорный бак"></button>
-                    <div class="card__group">
-                        <h3 class="card__text">Сидней</h3>
-                        <button class="card__like" type="button"></button>
-                    </div>
-                </div>
                 <template class="template">
                     <div class="card">
-                        <img class="card__image" src="" alt="">
+                        <img class="card__image" src="#" alt="#">
                         <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
                                 alt="Мусорный бак"></button>
                         <div class="card__group">
@@ -115,16 +58,24 @@
             </form>
         </div>
     </div>
-    <div class="popup_b">
+    <div class="popup popup_card">
         <div class="popup__window">
             <h2 class="popup__title">Новое место</h2>
-            <button type="button" class="popup__close-button_b"><img src="images/Vector(2).svg" class="popup__image"
+            <button type="button" class="popup__close-button popup__close-button_card"><img src="images/Vector(2).svg" class="popup__image"
                     alt="крестик"></button>
-            <form class="popup__form" name="cardForm">
-                <input name="cardText" type="text" class="popup__input" placeholder="Название">
-                <input name="cardImage" type="image" class="popup__input" placeholder="Ссылка на картинку">
-                <button class="popup__button" type="submit">Создать</button>
+            <form name="cardForm" class="popup__form popup__form_card">
+                <input name="cardName" type="text" class="popup__input popup__input_card" placeholder="Название">
+                <input name="cardLink" type="text" class="popup__input popup__input_card" placeholder="Ссылка на картинку">
+                <button class="popup__button popup__button_card" type="submit">Создать</button>
             </form>
+        </div>
+    </div>
+    <div class="popup popup_full">
+        <button type="button" class="popup__close-button popup__close-button_full"><img src="images/Vector(2).svg" class="popup__image"
+            alt="крестик"></button>
+            <div class="popup__full-group">
+            <img class="popup__full-image" src="#" alt="#">
+            <p class="popup__full-text"></p>
         </div>
     </div>
     <script src="javascript/index.js"></script>
