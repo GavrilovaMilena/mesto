@@ -105,10 +105,14 @@ function composeCard(item) {
   const newCard = templateCard.content.cloneNode(true);
   const cardText = newCard.querySelector('.card__text');
   const cardImage = newCard.querySelector('.card__image');
+  const cardLike = newCard.querySelector('.card__like');
   cardText.textContent = item.name;
   cardImage.src = item.link;
   addRemoveListenerToCard(newCard);
   addFullImageClickListenerToCard(item.name, item.link, cardImage);
+  newCard.querySelector('.card__like').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__like_active');
+});
   return newCard;
 }
 
@@ -136,5 +140,7 @@ function addFullImageClickListenerToCard(name, link, cardImage) {
     openFullImagePopup(name, link);
   });
 }
+
+
 
 renderCard();

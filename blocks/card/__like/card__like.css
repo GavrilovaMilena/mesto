@@ -15,6 +15,3 @@
     opacity: .5;
 }
 
-.card__like:active, .card__like:focus {
-    background-image: url(../../../images/Union\(1\).svg);
-   }
