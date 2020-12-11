@@ -45,6 +45,7 @@
 @import url(../blocks/popup/__button/_card/popup__button_card.css);
 @import url(../blocks/popup/__form/_card/popup__form_card.css);
 @import url(../blocks/popup/__input/_card/popup__input_card.css);
+@import url(../blocks/popup/__full-group/popup__full-group.css);
 
 @import url(../blocks/popup/_full/popup_full.css);
 @import url(../blocks/popup/__close-button/_full/popup__close-button_full.css);

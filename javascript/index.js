@@ -1,45 +1,37 @@
-let infoButtonNode = document.querySelector('.info__button');
-let popupNode = document.querySelector('.popup');
-let popupCloseButtonNode = document.querySelector('.popup__close-button');
-let popupFormNode = document.querySelector('.popup__form');
-let titleInput = document.querySelector('.popup__input[name="infoTitle"]');
-let subtitleInput = document.querySelector('.popup__input[name="infoSubtitle"]');
-let infoTitle = document.querySelector('.info__title');
-let infoSubtitle = document.querySelector('.info__subtitle');
+const infoButtonNode = document.querySelector('.info__button');
+const popupNode = document.querySelector('.popup');
+const popupCloseButtonNode = document.querySelector('.popup__close-button');
+const popupFormNode = document.querySelector('.popup__form');
+const titleInput = document.querySelector('.popup__input[name="infoTitle"]');
+const subtitleInput = document.querySelector('.popup__input[name="infoSubtitle"]');
+const infoTitle = document.querySelector('.info__title');
+const infoSubtitle = document.querySelector('.info__subtitle');
 
-let profileCardAddButtonNode = document.querySelector('.profile__add-button');
-let popupCardNode = document.querySelector('.popup_card');
-let popupCardCloseButtonNode = document.querySelector('.popup__close-button_card');
-let popupCardFormNode = document.querySelector('.popup__form_card');
-let cardNameInput = document.querySelector('.popup__input_card[name="cardName"]');
-let cardLinkInput = document.querySelector('.popup__input_card[name="cardLink"]');
+const profileCardAddButtonNode = document.querySelector('.profile__add-button');
+const popupCardNode = document.querySelector('.popup_card');
+const popupCardCloseButtonNode = document.querySelector('.popup__close-button_card');
+const popupCardFormNode = document.querySelector('.popup__form_card');
+const cardNameInput = document.querySelector('.popup__input_card[name="cardName"]');
+const cardLinkInput = document.querySelector('.popup__input_card[name="cardLink"]');
 
-let popupFullImageNode = document.querySelector('.popup__full-image');
-let popupFullTextNode = document.querySelector('.popup__full-text');
-let popupFullNode = document.querySelector('.popup_full');
-let popupCloseButtonFullNode = document.querySelector('.popup__close-button_full');
+const popupFullImageNode = document.querySelector('.popup__full-image');
+const popupFullTextNode = document.querySelector('.popup__full-text');
+const popupFullNode = document.querySelector('.popup_full');
+const popupCloseButtonFullNode = document.querySelector('.popup__close-button_full');
 
-function closePopups() {
-  popupNode.classList.remove('popup_visible');
-  popupCardNode.classList.remove('popup_visible');
-  popupFullNode.classList.remove('popup_visible');
+function closePopup(node) {
+  node.classList.remove('popup_visible');
 }
 
-function openPopup() {
-  popupNode.classList.add('popup_visible');
-  titleInput.value = infoTitle.textContent;
-  subtitleInput.value = infoSubtitle.textContent;
+function openPopup(node) {
+  node.classList.add('popup_visible');
 }
 
 function submitHandler(evt) {
   evt.preventDefault();
   infoTitle.textContent = titleInput.value;
   infoSubtitle.textContent = subtitleInput.value;
-  closePopups();
-}
-
-function openPopupCard() {
-  popupCardNode.classList.add('popup_visible');
+  closePopup(popupNode);
 }
 
 function submitCardHandler(evt) {
@@ -47,20 +39,27 @@ function submitCardHandler(evt) {
   addNewCard();
   cardNameInput.value = '';
   cardLinkInput.value = '';
-  closePopups();
+  closePopup(popupCardNode);
 }
 
-function openFullImagePopup(name, link) {
-  popupFullNode.classList.add('popup_visible');
-  popupFullTextNode.textContent = name;
-  popupFullImageNode.src = link;
-}
+popupCloseButtonNode.addEventListener('click', () => {
+  closePopup(popupNode);
+});
+popupCardCloseButtonNode.addEventListener('click', () => {
+  closePopup(popupCardNode);
+});
+popupCloseButtonFullNode.addEventListener('click', () => {
+  closePopup(popupFullNode);
+});
 
-popupCloseButtonNode.addEventListener('click', closePopups);
-popupCardCloseButtonNode.addEventListener('click', closePopups);
-popupCloseButtonFullNode.addEventListener('click', closePopups);
-infoButtonNode.addEventListener('click', openPopup);
-profileCardAddButtonNode.addEventListener('click', openPopupCard);
+infoButtonNode.addEventListener('click', () => {
+  titleInput.value = infoTitle.textContent;
+  subtitleInput.value = infoSubtitle.textContent;
+  openPopup(popupNode);
+});
+profileCardAddButtonNode.addEventListener('click', () => {
+  openPopup(popupCardNode);
+});
 popupFormNode.addEventListener('submit', submitHandler);
 popupCardFormNode.addEventListener('submit', submitCardHandler);
 
@@ -105,14 +104,14 @@ function composeCard(item) {
   const newCard = templateCard.content.cloneNode(true);
   const cardText = newCard.querySelector('.card__text');
   const cardImage = newCard.querySelector('.card__image');
-  const cardLike = newCard.querySelector('.card__like');
   cardText.textContent = item.name;
+  cardImage.alt = item.name;
   cardImage.src = item.link;
   addRemoveListenerToCard(newCard);
   addFullImageClickListenerToCard(item.name, item.link, cardImage);
   newCard.querySelector('.card__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('card__like_active');
-});
+  });
   return newCard;
 }
 
@@ -121,13 +120,10 @@ function addNewCard() {
   const cardLink = cardLinkInput.value;
   const addNewCard = composeCard({ name: cardName, link: cardLink });
   cardsContainerElement.prepend(addNewCard);
-  cardNameInput.value = '';
-  cardLinkInput.value = '';
 }
 
 function removeCard(evt) {
-  const targetCard = evt.target.closest('.card');
-  targetCard.remove();
+  evt.target.closest('.card').remove()
 }
 
 function addRemoveListenerToCard(item) {
@@ -137,10 +133,11 @@ function addRemoveListenerToCard(item) {
 
 function addFullImageClickListenerToCard(name, link, cardImage) {
   cardImage.addEventListener('click', () => {
-    openFullImagePopup(name, link);
+    popupFullTextNode.textContent = name;
+    popupFullImageNode.src = link;
+    popupFullImageNode.alt = name;
+    openPopup(popupFullNode);
   });
 }
-
-
 
 renderCard();
