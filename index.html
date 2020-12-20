@@ -29,17 +29,7 @@
                 </button>
             </section>
             <section class="cards">
-                <template class="template">
-                    <div class="card">
-                        <img class="card__image" src="#" alt="#">
-                        <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                                alt="Мусорный бак"></button>
-                        <div class="card__group">
-                            <h3 class="card__text"></h3>
-                            <button class="card__like" type="button"></button>
-                        </div>
-                    </div>
-                </template>
+
             </section>
         </main>
         <footer class="footer">
@@ -51,9 +41,13 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <button type="button" class="popup__close-button"><img src="images/Vector(2).svg" class="popup__image"
                     alt="крестик"></button>
-            <form class="popup__form" name="infoForm">
-                <input name="infoTitle" type="text" class="popup__input" placeholder="Имя">
-                <input name="infoSubtitle" type="text" class="popup__input" placeholder="Чем Вы занимаетесь?">
+            <form class="popup__form" name="infoForm" novalidate>
+                <input name="infoTitle" type="text" class="popup__input" placeholder="Имя" maxlength="40" minlength="2"
+                    required id="name">
+                <span id="name-error" class="error"></span>
+                <input name="infoSubtitle" type="text" class="popup__input" placeholder="О себе" maxlength="200"
+                    minlength="2" required id="about">
+                <span id="about-error" class="error"></span>
                 <button class="popup__button" type="submit">Сохранить</button>
             </form>
         </div>
@@ -63,10 +57,13 @@
             <h2 class="popup__title">Новое место</h2>
             <button type="button" class="popup__close-button popup__close-button_card"><img src="images/Vector(2).svg"
                     class="popup__image" alt="крестик"></button>
-            <form name="cardForm" class="popup__form popup__form_card">
-                <input name="cardName" type="text" class="popup__input popup__input_card" placeholder="Название">
-                <input name="cardLink" type="text" class="popup__input popup__input_card"
-                    placeholder="Ссылка на картинку">
+            <form name="cardForm" class="popup__form popup__form_card" novalidate>
+                <input name="cardName" type="text" class="popup__input popup__input_card" placeholder="Название"
+                    maxlength="30" minlength="2" required id="about">
+                <span id="about-error" class="error"></span>
+                <input name="cardLink" type="url" class="popup__input popup__input_card"
+                    placeholder="Ссылка на картинку" required id="url">
+                <span id="url-error" class="error"></span>
                 <button class="popup__button popup__button_card" type="submit">Создать</button>
             </form>
         </div>
@@ -79,7 +76,19 @@
             <p class="popup__full-text"></p>
         </div>
     </div>
-    <script src="javascript/index.js"></script>
+    <template class="template">
+        <div class="card">
+            <img class="card__image" src="#" alt="#">
+            <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
+                    alt="Мусорный бак"></button>
+            <div class="card__group">
+                <h3 class="card__text"></h3>
+                <button class="card__like" type="button"></button>
+            </div>
+        </div>
+    </template>
+    <script src="script/validate.js"></script>
+    <script src="script/index.js"></script>
 </body>
 
 </html>
