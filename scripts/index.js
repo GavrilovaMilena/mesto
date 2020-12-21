@@ -1,5 +1,5 @@
 const infoButtonNode = document.querySelector('.info__button');
-const popupNode = document.querySelector('.popup');
+const popupProfileNode = document.querySelector('.popup_profile');
 const popupFormNode = document.querySelector('.popup__form');
 const popupCloseButtonNode = document.querySelector('.popup__close-button');
 const titleInput = document.querySelector('.popup__input[name="infoTitle"]');
@@ -53,7 +53,7 @@ function submitHandler(evt) {
   evt.preventDefault();
   infoTitle.textContent = titleInput.value;
   infoSubtitle.textContent = subtitleInput.value;
-  closePopup(popupNode);
+  closePopup(popupProfileNode);
 }
 
 function submitCardHandler(evt) {
@@ -65,7 +65,7 @@ function submitCardHandler(evt) {
 }
 
 popupCloseButtonNode.addEventListener('click', () => {
-  closePopup(popupNode);
+  closePopup(popupProfileNode);
 });
 popupCardCloseButtonNode.addEventListener('click', () => {
   closePopup(popupCardNode);
@@ -77,7 +77,7 @@ popupCloseButtonFullNode.addEventListener('click', () => {
 infoButtonNode.addEventListener('click', () => {
   titleInput.value = infoTitle.textContent;
   subtitleInput.value = infoSubtitle.textContent;
-  openPopup(popupNode);
+  openPopup(popupProfileNode);
 });
 profileCardAddButtonNode.addEventListener('click', () => {
   openPopup(popupCardNode);
