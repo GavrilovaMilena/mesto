@@ -1,4 +1,8 @@
-const infoButtonNode = document.querySelector('.info__button');
+import Card from './card.js'
+import FormValidator from './FormValidator.js'
+import {initialCards} from './initialСards.js'
+import {validationConfig} from './validate.js'
+
 const popupProfileNode = document.querySelector('.popup_profile');
 const popupFormNode = document.querySelector('.popup__form');
 const popupCloseButtonNode = document.querySelector('.popup__close-button');
@@ -14,10 +18,45 @@ const popupCardCloseButtonNode = document.querySelector('.popup__close-button_ca
 const cardNameInput = document.querySelector('.popup__input_card[name="cardName"]');
 const cardLinkInput = document.querySelector('.popup__input_card[name="cardLink"]');
 
-const popupFullImageNode = document.querySelector('.popup__full-image');
-const popupFullTextNode = document.querySelector('.popup__full-text');
-const popupFullNode = document.querySelector('.popup_full');
+const cardsContainerElement = document.querySelector('.cards');
+
 const popupCloseButtonFullNode = document.querySelector('.popup__close-button_full');
+export const popupFullImageNode = document.querySelector('.popup__full-image');
+export const popupFullTextNode = document.querySelector('.popup__full-text');
+export const popupFullNode = document.querySelector('.popup_full');
+
+const profileFormValidity = new FormValidator(validationConfig, popupFormNode);
+const addCardFormValidity = new FormValidator(validationConfig, popupCardFormNode);
+
+const infoButtonNode = document.querySelector('.info__button');
+
+//Рендер карточек.
+function renderCard() {
+  initialCards.forEach((item) => {
+    const card = new Card(item, '.template');
+    const cardElement = card.generateCard();
+    document.querySelector('.cards').append(cardElement);
+  })
+}
+renderCard();
+
+//сброс полей карточки
+function resetPopupForm() {
+  popupCardFormNode.reset();
+}
+
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+  addNewCard();
+  closePopup(popupCardNode);
+}
+
+//сохранение данных профиля
+infoButtonNode.addEventListener('click', () => {
+  titleInput.value = infoTitle.textContent;
+  subtitleInput.value = infoSubtitle.textContent;
+  openPopup(popupProfileNode);
+});
 
 //Закрытие попапа.
 function closePopup(node) {
@@ -43,7 +82,7 @@ function closeByOverlay(evt) {
 }
 
 //Открытие попапа.
-function openPopup(node) {
+export function openPopup(node) {
   node.classList.add('popup_visible');
   document.addEventListener('keydown', closeByEsc);
   document.addEventListener('click', closeByOverlay);
@@ -56,13 +95,7 @@ function submitHandler(evt) {
   closePopup(popupProfileNode);
 }
 
-function submitCardHandler(evt) {
-  evt.preventDefault();
-  addNewCard();
-  cardNameInput.value = '';
-  cardLinkInput.value = '';
-  closePopup(popupCardNode);
-}
+
 
 popupCloseButtonNode.addEventListener('click', () => {
   closePopup(popupProfileNode);
@@ -82,90 +115,20 @@ infoButtonNode.addEventListener('click', () => {
 profileCardAddButtonNode.addEventListener('click', () => {
   openPopup(popupCardNode);
 });
+
 popupFormNode.addEventListener('submit', submitHandler);
-popupCardFormNode.addEventListener('submit', submitCardHandler);
-
-
-
-const initialCards = [
-  {
-    name: 'Москва',
-    link: 'https://images.unsplash.com/photo-1559814925-1cbee7842a7c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80'
-  },
-  {
-    name: 'Роза Хутор',
-    link: 'https://images.unsplash.com/photo-1547925972-ad174a37ac60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80'
-  },
-  {
-    name: 'Ласточкино гнездо',
-    link: 'https://i.artfile.ru/1920x1170_1090489_[www.ArtFile.ru].jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://images.unsplash.com/photo-1543514060-d333dec37b9f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8a2FtY2hhdGthfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    name: 'Санкт-Петербург',
-    link: 'https://images.unsplash.com/photo-1586961215517-d2dce511feba?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://images.unsplash.com/photo-1490791135648-882cc5638215?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2075&q=80'
-  }
-];
-
-const cardsContainerElement = document.querySelector('.cards');
-const templateCard = document.querySelector('.template');
-
-//Рендер карточек.
-function renderCard() {
-  const cardsCard = initialCards.map(composeCard);
-  cardsContainerElement.append(...cardsCard);
-}
-
-//Создание карточки из шаблона.
-function composeCard(item) {
-  const newCard = templateCard.content.cloneNode(true);
-  const cardText = newCard.querySelector('.card__text');
-  const cardImage = newCard.querySelector('.card__image');
-  cardText.textContent = item.name;
-  cardImage.alt = item.name;
-  cardImage.src = item.link;
-  addRemoveListenerToCard(newCard);
-  addFullImageClickListenerToCard(item.name, item.link, cardImage);
-  //Лайк карточки.
-  newCard.querySelector('.card__like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('card__like_active');
-  });
-  return newCard;
-}
+popupCardFormNode.addEventListener('submit', handleAddCardFormSubmit);
 
 //Добавление новых карточек.
 function addNewCard() {
   const cardName = cardNameInput.value;
   const cardLink = cardLinkInput.value;
-  const addNewCard = composeCard({ name: cardName, link: cardLink });
-  cardsContainerElement.prepend(addNewCard);
+  const card = new Card({name: cardName, link: cardLink}, '.template');
+  const cardElement = card.generateCard();
+  cardsContainerElement.prepend(cardElement);
+  resetPopupForm();
 }
 
-//Удаление карточки.
-function removeCard(evt) {
-  evt.target.closest('.card').remove()
-}
 
-//Обработчик события удаления карточки.
-function addRemoveListenerToCard(item) {
-  const deleteButton = item.querySelector('.card__delete');
-  deleteButton.addEventListener('click', removeCard);
-}
-
-function addFullImageClickListenerToCard(name, link, cardImage) {
-  cardImage.addEventListener('click', () => {
-    popupFullTextNode.textContent = name;
-    popupFullImageNode.src = link;
-    popupFullImageNode.alt = name;
-    openPopup(popupFullNode);
-  });
-}
-
-renderCard();
+profileFormValidity.enableValidation();
+addCardFormValidity.enableValidation();
