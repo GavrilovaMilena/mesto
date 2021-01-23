@@ -35,7 +35,7 @@ function renderCard() {
   initialCards.forEach((item) => {
     const card = new Card(item, '.template');
     const cardElement = card.generateCard();
-    document.querySelector('.cards').append(cardElement);
+    cardsContainerElement.append(cardElement);
   })
 }
 renderCard();
