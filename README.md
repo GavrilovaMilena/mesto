@@ -1,17 +1,18 @@
-# Проект 4: Место
+# <a href="https://gavrilovamilena.github.io/mesto/index.html" target="_blanc">Проект 4: Место</a>
 
  Веб-сайт посвящён интересным местам России.
 
 ### Обзор
 - Обучение от Яндекс.Практикум
 - Верстка сайта в целях обучения 
-- Ссылка на готовый проект https://gavrilovamilena.github.io/mesto/index.html
 
 ### Используется
 - Hover
-- Flex
-- Grig
-- Popup
+- Flex и Grig - позиционирование и построение сеток 
 - JS
 - Валидация форм
+- Popup
+- ООП
+- Webpack
+
 
