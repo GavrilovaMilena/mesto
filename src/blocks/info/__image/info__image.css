@@ -1,0 +1,17 @@
+.info__image {
+    margin: auto;
+}
+
+@media (min-width: 320px) {
+    .info__image {
+        max-width: 7.5px;
+        min-height: 7.5px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .info__image {
+        max-width: 10px;
+        min-height: 10px;
+    }
+}

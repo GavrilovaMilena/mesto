@@ -1,0 +1,17 @@
+.profile__image {
+    margin: auto;
+}
+
+@media (min-width: 320px) {
+    .profile__image {
+        max-width: 16px;
+        min-height: 16px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .profile__image {
+        max-width: 22px;
+        min-height: 22px;
+    }
+}
