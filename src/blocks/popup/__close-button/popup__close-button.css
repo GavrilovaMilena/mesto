@@ -3,8 +3,16 @@
     cursor: pointer;
     transition: 1s;
     background-color: rgba(0, 0, 0, 0);
-    border: 0;
+    padding: 0;
+    width: 56px;
+    height: 56px;
+    border: none;
+    outline: none;
     position: absolute;
+    background-image: url("../../../images/Vector(2).svg");
+    background-position: center;
+    background-size: cover;
+    transform: rotate(45deg);
 }
 
 .popup__close-button:hover {

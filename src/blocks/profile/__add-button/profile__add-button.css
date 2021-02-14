@@ -9,6 +9,9 @@
     align-items: center;
     transition: 1s;
     background-color: black;
+    background-image: url("../../../images/Vector(2).svg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .profile__add-button:hover {

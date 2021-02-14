@@ -5,6 +5,10 @@
     grid-area: button;
     cursor: pointer;
     transition: 1s;
+    background-image: url("../../../images/Vector(1).svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
 }
 
 .info__button:hover {

@@ -11,22 +11,17 @@
 <body class="body">
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="images/Vector.svg" alt="Логотип Mesto Russia">
-
+            <div class="header__logo"></div>
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="images/unnamed.jpg" alt="Фото профиля">
+                <img class="profile__avatar" src="https://w7.pngwing.com/pngs/519/239/png-transparent-rick-sanchez-human-morty-smith-pocket-mortys-rick-sanches-white-mammal-face.png" alt="Фото профиля">
                 <div class="info">
                     <h1 class="info__title">Рик Санчез</h1>
                     <p class="info__subtitle">Гениальный и немолодой ученый</p>
-                    <button class="info__button" type="button">
-                        <img class="info__image" src="images/Vector(1).svg" alt="Ручка">
-                    </button>
+                    <button class="info__button" type="button"></button>
                 </div>
-                <button class="profile__add-button" type="button">
-                    <img class="profile__image" src="images/Vector(2).svg" alt="Плюс">
-                </button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="cards">
 
@@ -39,8 +34,7 @@
     <div class="popup popup_profile">
         <div class="popup__window">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <button type="button" class="popup__close-button"><img src="images/Vector(2).svg" class="popup__image"
-                    alt="крестик"></button>
+            <button type="button" class="popup__close-button"></button>
             <form class="popup__form" name="infoForm" novalidate>
                 <input 
                 name="infoTitle"
@@ -74,8 +68,7 @@
     <div class="popup popup_card">
         <div class="popup__window">
             <h2 class="popup__title">Новое место</h2>
-            <button type="button" class="popup__close-button popup__close-button_card"><img src="images/Vector(2).svg"
-                    class="popup__image" alt="крестик"></button>
+            <button type="button" class="popup__close-button popup__close-button_card"></button>
             <form name="cardForm" class="popup__form popup__form_card" novalidate>
                 <input 
                 name="cardName" 
@@ -107,23 +100,21 @@
     <div class="popup popup_full">
         <div class="popup__full-group">
             <img class="popup__full-image" src="#" alt="#">
-            <button type="button" class="popup__close-button popup__close-button_full"><img src="images/Vector(2).svg"
-                    class="popup__image" alt="крестик"></button>
+            <button type="button" class="popup__close-button popup__close-button_full"></button>
             <p class="popup__full-text"></p>
         </div>
     </div>
     <template class="template">
         <div class="card">
             <img class="card__image" src="#" alt="#">
-            <button class="card__delete" type="button"><img class="card__trashcan" src="images/Group.svg"
-                    alt="Мусорный бак"></button>
+            <button class="card__delete" type="button"></button>
             <div class="card__group">
                 <h3 class="card__text"></h3>
                 <button class="card__like" type="button"></button>
             </div>
         </div>
     </template>
-     <script type="module" src="./pages/index.js"></script>
+     <script type="module" src="pages/index.js"></script>
 </body>
 
 </html>
