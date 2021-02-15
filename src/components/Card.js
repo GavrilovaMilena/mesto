@@ -27,6 +27,7 @@ export default class Card {
     this._element = null;
   }
 
+
   // сгенерируем и подготовим карточку к публикации
   generateCard() {
     this._element = this._getTemplate();
@@ -41,6 +42,7 @@ export default class Card {
 
     return this._element;
   }
+
   //слушатели кликов
   _setEventListeners() {
     this._cardImage = this._element.querySelector('.card__image');

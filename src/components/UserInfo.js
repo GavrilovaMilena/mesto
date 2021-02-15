@@ -1,5 +1,5 @@
 export default class UserInfo {
-  constructor({ nameSelector, aboutSelector }) {
+  constructor(nameSelector, aboutSelector) {
     this._nameUser = document.querySelector(nameSelector);
     this._about = document.querySelector(aboutSelector);
   }
@@ -7,8 +7,8 @@ export default class UserInfo {
   // возвращает объект с данными
   getUserInfo() {
     const userInfo = {
-      name: this._nameUser,
-      about: this._about
+      name: this._nameUser.textContent,
+      about: this._about.textContent
     };
     return userInfo;
   }
@@ -18,4 +18,3 @@ export default class UserInfo {
     this._about.textContent = usrAbout.value;
   }
 }
-
