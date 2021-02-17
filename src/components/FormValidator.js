@@ -29,7 +29,7 @@ export default class FormValidator {
     }
 
     //Функция проверки состояния кнопки.
-    _setButtonState() {
+    setButtonState() {
         if (!this._formElement.checkValidity()) {
             this._submitButton.classList.add(this._validations.buttonInvalidClass);
             this._submitButton.disabled = 'disabled';
@@ -46,13 +46,13 @@ export default class FormValidator {
         inputList.forEach(thisInput => {
             thisInput.addEventListener('input', () => {
                 this._checkInputValidity(thisInput);
-                this._setButtonState();
+                this.setButtonState();
             });
         });
         this._formElement.addEventListener('reset', () => {
             inputList.forEach((input) => {
                 this._hideError(input);
-                this._setButtonState();
+                this.setButtonState();
             });
         });
     }
@@ -61,7 +61,7 @@ export default class FormValidator {
         this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
-        this._setButtonState();
+        this.setButtonState();
         this._setEventListener(this._formElement);
     }
 }

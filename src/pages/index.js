@@ -13,31 +13,28 @@ import {
   initialCards,
   template,
   cardsContainerElement,
-  popupFullNode,
   profileAbout,
   profileName,
   subtitleInput,
   titleInput,
   popupFormNode,
-  popupProfileNode,
   cardLinkInput,
   cardNameInput,
   popupCardFormNode,
-  popupCardNode,
   profileCardAddButtonNode,
   infoButtonNode
 } from "../utils/constants.js"
 
 const cardValidation = new FormValidator(validationConfig, popupCardFormNode);
 const profileValidation = new FormValidator(validationConfig, popupFormNode);
-const full = new PopupWithImage(popupFullNode);
+const full = new PopupWithImage('.popup_full');
 const profileInfo = new UserInfo(profileName, profileAbout);
 
 //получения карточки
 const createCard = (item) => {
   const card = new Card({
     card: item,
-    openPopupFull: () => full.open(card)
+    openPopupFull: () => full.open(item.image, item.name)
   }, template);
   return card
 }
@@ -56,16 +53,17 @@ cardsContainerElement
 
 // экземпляр класса PopupWithForm профиля 
 const popupProfile = new PopupWithForm({
-  popupSelector: popupProfileNode,
+  popupSelector: '.popup_profile',
   handleForm: () => {
     profileInfo.setUserInfo(titleInput, subtitleInput);
     popupProfile.close();
   }
 })
+popupProfile.setEventListeners();
 
 // экземпляр класса PopupWithForm карточек
 const popupCard = new PopupWithForm({
-  popupSelector: popupCardNode,
+  popupSelector: '.popup_card',
   handleForm: () => {
     const card = createCard({image: cardLinkInput.value, name: cardNameInput.value});
     const cardElement = card.generateCard();
@@ -73,6 +71,8 @@ const popupCard = new PopupWithForm({
     popupCard.close();
   }
 });
+popupCard.setEventListeners();
+
 
 // кнопка добавления карточки
 profileCardAddButtonNode.addEventListener('click', () => {
@@ -89,7 +89,5 @@ infoButtonNode.addEventListener('click', () => {
 
 full.setEventListeners();
 cardList.renderItems();
-popupProfile.setEventListeners();
-popupCard.setEventListeners();
 cardValidation.enableValidation();
 profileValidation.enableValidation();

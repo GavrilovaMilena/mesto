@@ -1,12 +1,11 @@
 export default class Popup {
   constructor(popupSelector) {
-    this._popup = popupSelector;
+    this._popup = document.querySelector(popupSelector);
     this._popupCloseButton = this._popup.querySelector(".popup__close-button");
     this._handleEscClose = this._handleEscClose.bind(this);
     this._handleOverlayClose = this._handleOverlayClose.bind(this);
     this._handleButtonClose = this._handleButtonClose.bind(this);
   }
-
   //открытие попапа
   open() {
     this._popup.classList.add('popup_visible');
@@ -16,10 +15,6 @@ export default class Popup {
   close() {
     this._popup.classList.remove('popup_visible');
     document.removeEventListener('keydown', this._handleEscClose);
-  }
-
-  _handleButtonClose() {
-    this.closePopup();
   }
   //закрытие попапа на Esc
   _handleEscClose(evt) {

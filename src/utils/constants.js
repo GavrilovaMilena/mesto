@@ -1,22 +1,19 @@
+// КНОПКИ
 export const infoButtonNode = document.querySelector('.info__button');
 export const profileCardAddButtonNode = document.querySelector('.profile__add-button');
-
-export const popupCardNode = document.querySelector('.popup_card');
+// попап добавления карточек
 export const popupCardFormNode = document.querySelector('.popup__form_card');
 export const cardNameInput = document.querySelector('.popup__input_card[name="cardName"]');
 export const cardLinkInput = document.querySelector('.popup__input_card[name="cardLink"]');
-
-export const popupProfileNode = document.querySelector('.popup_profile');
+// попап редактирования данных профиля
 export const popupFormNode = document.querySelector('.popup__form');
 export const titleInput = document.querySelector('.popup__input[name="infoTitle"]');
 export const subtitleInput = document.querySelector('.popup__input[name="infoSubtitle"]');
 export const profileName = '.info__title';
 export const profileAbout = '.info__subtitle';
 
-export const popupFullNode = document.querySelector('.popup_full');
 export const cardsContainerElement = document.querySelector('.cards');
 export const template = document.querySelector('.template');
-
 
 export const initialCards = [
     {

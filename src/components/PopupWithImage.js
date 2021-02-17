@@ -7,11 +7,10 @@ export default class PopupWithImage extends Popup {
     this._fullText = this._popup.querySelector(".popup__full-text");
   }
 
-  open(card) {
+  open(image, name) {
     super.open();
-
-    this._fullImage.src = card._image;;
-    this._fullImage.alt = card._name;
-    this._fullText.textContent = card._name;
+    this._fullImage.src = image;
+    this._fullImage.alt = name;
+    this._fullText.textContent = name;
   }
 }
