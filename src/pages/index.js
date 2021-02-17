@@ -76,6 +76,7 @@ popupCard.setEventListeners();
 
 // кнопка добавления карточки
 profileCardAddButtonNode.addEventListener('click', () => {
+  cardValidation.setButtonState();
   popupCard.open();
 });
 
