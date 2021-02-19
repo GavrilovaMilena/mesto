@@ -6,8 +6,8 @@ export default class PopupWithSubmit extends Popup {
     this._popupWithSubmitDelete = document.querySelector('.popup__button_delete-card');
   }
 
-  setEventListeners(deleteCard) {
-    super.setEventListeners();
+  open(deleteCard) {
+    super.open();
     this._handleButtonSubmit = deleteCard;
     this._popupWithSubmitDelete.addEventListener('click', this._handleButtonSubmit);
   }

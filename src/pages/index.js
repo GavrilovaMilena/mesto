@@ -55,10 +55,10 @@ full.setEventListeners();
 //профиль
 const submitProfile = (data) => {
   renderLoading('.popup_profile', true);
-  profileInfo.setUserInfo(data);
   const newUserInfo = profileInfo.getUserInfo();
   api.setUserInfo(newUserInfo.name, newUserInfo.about)
     .then(() => {
+      profileInfo.setUserInfo(data);
       renderLoading('.popup_profile', false)
     })
     .catch((err) => {
@@ -109,8 +109,7 @@ const avatarPopup = new PopupWithForm('.popup_avatar', submitAvatar);
 avatarPopup.setEventListeners();
 
 //кнопка редактирования данных профия
-infoButtonNode.addEventListener('click', () => {
-  profileValidation.enableValidation();
+infoButtonNode.addEventListener('click', () => {git 
   const userInfo = profileInfo.getUserInfo();
   titleInput.value = userInfo.name;
   subtitleInput.value = userInfo.about;
@@ -119,13 +118,11 @@ infoButtonNode.addEventListener('click', () => {
 
 //кнопка добавления карточек
 profileCardAddButtonNode.addEventListener('click', () => {
-  cardValidation.enableValidation();
   cardPopup.open()
 });
 
 //кнопка редактирования аватара
 avatarButtonCardNode.addEventListener('click', () => {
-  avatarValidation.enableValidation();
   avatarPopup.open();
 })
 
