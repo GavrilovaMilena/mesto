@@ -6,19 +6,19 @@
 
 @media (min-width: 320px) {
     .card__image {
-        max-width: 282px;
-        min-height: 282px;
+        width: 282px;
+        height: 282px;
     }
 }
 
 @media (min-width: 1024px) {
     .card__image {
-        max-width: 300px;
+        width: 300px;
     }
 }
 
 @media (min-width: 1280px) {
     .card__image {
-        max-width: 282px;
+        width: 282px;
     }
 }
