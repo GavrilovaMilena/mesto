@@ -56,6 +56,7 @@ export default class FormValidator {
             });
         });
     }
+
     //включение валидации
     enableValidation() {
         this._formElement.addEventListener('submit', (evt) => {

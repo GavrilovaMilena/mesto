@@ -55,8 +55,11 @@ full.setEventListeners();
 //профиль
 const submitProfile = (data) => {
   renderLoading('.popup_profile', true);
-  const newUserInfo = profileInfo.getUserInfo();
-  api.setUserInfo(newUserInfo.name, newUserInfo.about)
+  const editedUserInfo = {
+    name: titleInput.value,
+    about: subtitleInput.value
+  };
+  api.setUserInfo(editedUserInfo.name, editedUserInfo.about)
     .then(() => {
       profileInfo.setUserInfo(data);
       renderLoading('.popup_profile', false)
@@ -113,16 +116,19 @@ infoButtonNode.addEventListener('click', () => {
   const userInfo = profileInfo.getUserInfo();
   titleInput.value = userInfo.name;
   subtitleInput.value = userInfo.about;
+  profileValidation.setButtonState();
   profilePopup.open();
 });
 
 //кнопка добавления карточек
 profileCardAddButtonNode.addEventListener('click', () => {
+  cardValidation.setButtonState();
   cardPopup.open()
 });
 
 //кнопка редактирования аватара
 avatarButtonCardNode.addEventListener('click', () => {
+  avatarValidation.setButtonState();
   avatarPopup.open();
 })
 
