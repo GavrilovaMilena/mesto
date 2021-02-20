@@ -109,7 +109,7 @@ const avatarPopup = new PopupWithForm('.popup_avatar', submitAvatar);
 avatarPopup.setEventListeners();
 
 //кнопка редактирования данных профия
-infoButtonNode.addEventListener('click', () => {git 
+infoButtonNode.addEventListener('click', () => { 
   const userInfo = profileInfo.getUserInfo();
   titleInput.value = userInfo.name;
   subtitleInput.value = userInfo.about;
